@@ -5,14 +5,25 @@ require("dotenv").config()
 
 module.exports = {
 
-    c_login: async (req, res)=>{
+    c_login: async (req, res)=>{ 
         let user = req.body.user
         let pass = req.body.pass
         try{
             const usuarioEncontrado = await m_usuario.findOne({"user":user})
             // console.log("compare ",bcrypt.compareSync(pass, {usuarioEncontrado.pass}"`))
             // console.log("pre compare",usuarioEncontrado.pass)
-            // console.log("compare ", bcrypt.compareSync( usuarioEncontrado.pass, pass))
+
+            console.log("compare ", bcrypt.compareSync( pass, usuarioEncontrado.pass))
+
+            pass = await bcrypt.hash(pass, 10)
+
+            // res.json({
+
+            //     hash: usuarioEncontrado.pass,
+
+            //     pass: pass
+
+            // })
 
 
             if(bcrypt.compare(pass, usuarioEncontrado.pass)){

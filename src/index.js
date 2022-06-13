@@ -10,7 +10,7 @@ require("dotenv").config()
 const r_registro = require("./rutas/r_registro")
 const r_login = require("./rutas/r_login")
 const r_mascotas = require("./rutas/r_mascotas")
-//const r_usuarios = require("./rutas/r_usuarios")
+const r_usuarios = require("./rutas/r_usuarios")
 
 const app = express()
 
@@ -33,7 +33,7 @@ app.use(morgan("tiny"))
 
 
 //rutas genericas
-//app.use("/api/usuarios", r_usuarios)
+app.use("/api/usuarios", r_usuarios)
 app.use("/api/mascotas", r_mascotas)
 app.use("/api/registro", r_registro)
 app.use("/api/login", r_login)

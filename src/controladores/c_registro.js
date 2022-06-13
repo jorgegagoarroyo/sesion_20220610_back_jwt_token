@@ -5,13 +5,20 @@ module.exports = {
     
     c_registro: async (req,res)=>{
 
+        let rol = ["registrado"]
+        if(req.body.roles){
+            rol = rol.concat(req.body.roles)
+        }
+        console.log("roles del user ", rol)
+
+
         const contrasenaEncriptada = await bcrypt.hash( req.body.pass, 10)
 
         //instacia del modelo
         usuario = new m_usuarios({
             user : req.body.user,
             pass : contrasenaEncriptada,
-            roles : ["registrado"]
+            roles : rol//["registrado"]
         })
 
                                

@@ -30,6 +30,6 @@ preceso construccion API
 19. creamos endpoint mascotas y verificamos si el usuario puede acceder 
 20.crear un middleware auth que en la peticion se envia un token y lo compara con los usuarios
 
--->21. otro middleware para verificar el rol y si tiene acceso a los al endpoint
+21. otro middleware para verificar el rol y si tiene acceso a los al endpoint
 -->22. endpoint para subir archivos al server
 -->23. manipular archivos en el server usando "js-extra"
